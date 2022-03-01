@@ -1,0 +1,780 @@
+<style>
+    .mix_pack_header {
+      position: absolute;
+      font-size: 8vw;
+      color: rgb(var(--color-foreground));
+      line-height: 1;
+      top: -8%;
+      right: -100%;
+      width: 50vw;
+      text-align: center;
+      font-family: PlantinStd-BoldCondensed;
+      display: none;
+      text-transform: uppercase;
+    }
+    .mix_pack_header_active {
+      display: block;
+    }
+    .subscriptionProduct .grid {
+      margin-left: 0;
+  }
+    .mix_pack_wave {
+       position: absolute;
+       width: 100vw;
+       top: 50%;
+       left: calc(-5vw - 5rem);
+       transform: translateY(-50%);
+       height: auto;
+       z-index: -10;
+    }
+   
+    
+    .can_move .active_sub_image_1 {
+     
+      animation: anima 3s ease-in-out 0s infinite;
+    }
+    .can_move .active_sub_image_2{
+      
+      animation: anima 3s ease-in-out 0.5s infinite;
+    }
+    .can_move .active_sub_image_3{
+     
+      animation: anima 3s ease-in-out 1.5s infinite;
+    }
+    .can_move .active_sub_image_4{
+     
+      animation: anima 3s ease-in-out 1s infinite;
+    }
+     @keyframes anima {
+       0%   {transform: translatey(0);}
+       50%  {transform: translatey(1.5vw);}
+       100% {transform: translatey(0);}
+     }
+     
+    .subscriptionProduct__left {
+      position: relative;
+      z-index: 5;
+    }
+    .index .mix_pack_images {
+      position: relative;
+      height: 25vw;
+      width: 46vw;
+    }
+    .mix_pack_images {
+      position: relative;
+      height: 25vw;
+      width: 28vw;
+    }
+    .sub_img{
+     position: absolute;
+      height: 100%;
+      width: auto;
+      transition: all 0.3s ease-in-out;
+      display: none;
+    }
+    .active_sub_image {
+      display: block;
+    }
+    .active_sub_image_1 {
+  
+      left: 0; 
+      z-index: 37;
+    }
+    .active_sub_image_2{
+  
+      left: 25%;  
+      z-index: 39;
+    }
+    .active_sub_image_3{
+  
+      left: 50%;
+      z-index: 40;
+    }
+    .active_sub_image_4{
+  
+      left: 75%;
+      z-index: 38;
+    }
+    .mix_pack_cont_sticky .sub_img {
+     top: 0;
+    }
+    
+    .mix_pack_cont {   
+      z-index: 40;
+    }
+    .index .mix_pack_cont_sticky {
+      position: fixed;
+      top: 50vh;
+       right: -40%;
+    }
+    .index .subscriptionProduct {
+      padding-top: 25vw;
+      padding-bottom: 10vw;
+    }
+    .subscriptionProduct {
+      padding-top: 17.4vw;
+      padding-bottom: 5vw;
+    }
+    #jankooo{
+      height: 25vw;
+    }
+    
+    .subs_section_price {
+      display: block;
+      margin: max(1.3vw,19px) 0;
+      color: rgb(var(--color-foreground));
+      font-family: 'Helsinki-Book';
+      font-size: max(1.8vw,26px);
+      line-height: 1;
+    }
+    #jankooo {
+      height: 25vw;
+      align-self: baseline;
+      margin-top: 4.5vw;
+    }
+    .subscription_details{
+      padding-bottom: max(0.7vw, 10px);
+      position: relative;
+      margin: 0;
+      width: fit-content;
+      display: flex;
+      align-items: flex-end;
+  }
+    
+    .subscription_details:hover .subscription_details--popup {
+      display: block;
+    }
+    .subscription_details--label {
+      margin: 0;
+      color: rgb(var(--color-foreground));
+      font-size: max(1vw, 14px);
+      line-height: 1;
+      font-family: 'Helsinki-Book';
+    }
+    .subscription_details--popup {
+      position: absolute;
+      top: max(1.7vw, 24px);
+      background: rgb(var(--color-foreground));
+      z-index: 99;
+      padding: max(1.4vw, 20px) max(1vw, 20px);
+      width: 26vw;
+      display: none;
+    }
+    .subscription_details--popup::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    border-width: max(0.5vw, 8px);
+    border-style: solid;
+    border-color: transparent transparent rgb(var(--color-foreground)) transparent;
+  }
+    .subscription_details--heading, .subscription_details--text, .subscription_details--link {
+      color: rgb(var(--theme-switch-background));
+        
+    }
+    .subscription_details--heading {
+      font-family: 'Helsinki-Bold';
+       margin: 0 0 max(1.4vw, 20px);
+       font-size: max(1.25vw, 16px);
+      line-height: 1;
+    }
+    .subscription_details--link {
+      font-family: 'Helsinki-Book';
+      text-decoration: none;
+      font-size: max(1vw, 14px);
+      line-height: 1;
+    }
+    .subscription_details--text {
+      font-family: 'Helsinki-Light';
+      margin: 0 0 max(1.4vw, 20px);
+      font-size: max(1vw, 14px);
+      line-height: 1;
+    }
+    .subscription_details--text p {
+      margin: 0;
+    }
+    .reload-icon_subs {
+      width: max(1.1vw, 16px);
+      height: auto;
+      margin-right: 10px;
+    }
+    @media only screen and (max-width: 989px) {
+      .subscription_details--popup {
+        width: 34vw;
+      }
+      .subscriptionProduct {
+       padding-left: 0;
+       padding-right: 0;
+    }
+      .mix_pack_wave {
+      left: calc(-2.5vw - 2.5rem);
+  
+  }
+      .subscriptionProduct .grid .sec_title {
+        margin-top: 0;
+      }
+     
+    
+    }
+    @media only screen and (max-width: 749px) {
+      .index .mix_pack_cont_sticky {
+       right: -63%;
+    }
+      .subscription_details--popup {
+        width: 65vw;
+      }
+      .shopify-section-subscription-section .page-width{
+          max-width: 100%;
+      } 
+      .subscriptionProduct {
+         padding-top: 200px;
+      }
+      .index .subscriptionProduct {
+         padding-top: 38vw;
+      }
+      #jankooo{
+      height: 50vw;
+      margin-bottom: 85px;
+        margin-top: 0;
+     }
+      .mix_pack_images {
+      height: 50vw;
+      width: 46vw;
+      margin-left: 19vw;
+    }
+      .index .mix_pack_images {
+      height: 50vw;
+      width: 92vw;
+      margin-left: 19vw;
+    }
+      #subscriptionProduct__left {
+        order: 2;
+        height: fit-content;
+      }
+      .mix_pack_header {
+        font-size: 13.6vw;
+        top: calc(-85px - 63vw);
+        right: 0;
+        width: 100vw;
+      }
+      .subscriptionProduct__left {
+        padding-left: 6vw !important;
+        padding-right: 6vw;
+      }
+       .mix_pack_wave {
+      position: absolute;
+      width: 168vw;
+      top: -19%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      height: auto;
+      z-index: -10;
+      }
+    }
+  </style>
+  <script type="text/javascript">
+    {% comment %}
+      https://kenwheeler.github.io/cash/
+    {% endcomment %}
+  /* MIT https://github.com/fabiospampinato/cash */
+  (function(){
+  'use strict';var e={"class":"className",contenteditable:"contentEditable","for":"htmlFor",readonly:"readOnly",maxlength:"maxLength",tabindex:"tabIndex",colspan:"colSpan",rowspan:"rowSpan",usemap:"useMap"};function aa(a,b){try{return a(b)}catch(c){return b}}
+  var k=document,m=window,ba=k.documentElement,n=k.createElement.bind(k),ca=n("div"),p=n("table"),da=n("tbody"),ea=n("tr"),q=Array.isArray,r=Array.prototype,fa=r.concat,t=r.filter,ha=r.indexOf,ia=r.map,ja=r.push,ka=r.slice,u=r.some,la=r.splice,ma=/^#(?:[\w-]|\\.|[^\x00-\xa0])*$/,na=/^\.(?:[\w-]|\\.|[^\x00-\xa0])*$/,oa=/<.+>/,pa=/^\w+$/;function v(a,b){return a&&(w(b)||x(b))?na.test(a)?b.getElementsByClassName(a.slice(1)):pa.test(a)?b.getElementsByTagName(a):b.querySelectorAll(a):[]}
+  var B=function(){function a(a,c){if(a){if(a instanceof B)return a;var b=a;if(C(a)){if(b=(c instanceof B?c[0]:c)||k,b=ma.test(a)?b.getElementById(a.slice(1)):oa.test(a)?qa(a):v(a,b),!b)return}else if(D(a))return this.ready(a);if(b.nodeType||b===m)b=[b];this.length=b.length;a=0;for(c=this.length;a<c;a++)this[a]=b[a]}}a.prototype.init=function(b,c){return new a(b,c)};return a}(),E=B.prototype,F=E.init;F.fn=F.prototype=E;E.length=0;E.splice=la;"function"===typeof Symbol&&(E[Symbol.iterator]=r[Symbol.iterator]);
+  E.map=function(a){return F(fa.apply([],ia.call(this,function(b,c){return a.call(b,c,b)})))};E.slice=function(a,b){return F(ka.call(this,a,b))};var ra=/-([a-z])/g;function G(a){return a.replace(ra,function(a,c){return c.toUpperCase()})}F.guid=1;function sa(a,b){var c=a&&(a.matches||a.webkitMatchesSelector||a.msMatchesSelector);return!!c&&!!b&&c.call(a,b)}function H(a){return!!a&&a===a.window}function w(a){return!!a&&9===a.nodeType}function x(a){return!!a&&1===a.nodeType}
+  function D(a){return"function"===typeof a}function C(a){return"string"===typeof a}function ta(a){return!isNaN(parseFloat(a))&&isFinite(a)}function I(a){if("object"!==typeof a||null===a)return!1;a=Object.getPrototypeOf(a);return null===a||a===Object.prototype}F.isWindow=H;F.isFunction=D;F.isArray=q;F.isNumeric=ta;F.isPlainObject=I;E.get=function(a){if(void 0===a)return ka.call(this);a=Number(a);return this[0>a?a+this.length:a]};E.eq=function(a){return F(this.get(a))};E.first=function(){return this.eq(0)};
+  E.last=function(){return this.eq(-1)};function J(a,b,c){if(c)for(c=a.length;c--&&!1!==b.call(a[c],c,a[c]););else if(I(a)){var d=Object.keys(a);c=0;for(var h=d.length;c<h;c++){var f=d[c];if(!1===b.call(a[f],f,a[f]))break}}else for(c=0,h=a.length;c<h&&!1!==b.call(a[c],c,a[c]);c++);return a}F.each=J;E.each=function(a){return J(this,a)};E.prop=function(a,b){if(a){if(C(a))return a=e[a]||a,2>arguments.length?this[0]&&this[0][a]:this.each(function(c,h){h[a]=b});for(var c in a)this.prop(c,a[c]);return this}};
+  E.removeProp=function(a){return this.each(function(b,c){delete c[e[a]||a]})};function K(){for(var a=[],b=0;b<arguments.length;b++)a[b]=arguments[b];b="boolean"===typeof a[0]?a.shift():!1;var c=a.shift(),d=a.length;if(!c)return{};if(!d)return K(b,F,c);for(var h=0;h<d;h++){var f=a[h],g;for(g in f)b&&(q(f[g])||I(f[g]))?(c[g]&&c[g].constructor===f[g].constructor||(c[g]=new f[g].constructor),K(b,c[g],f[g])):c[g]=f[g]}return c}F.extend=K;E.extend=function(a){return K(E,a)};
+  function L(a){return C(a)?function(b,c){return sa(c,a)}:D(a)?a:a instanceof B?function(b,c){return a.is(c)}:a?function(b,c){return c===a}:function(){return!1}}E.filter=function(a){var b=L(a);return F(t.call(this,function(a,d){return b.call(a,d,a)}))};function M(a,b){return b?a.filter(b):a}var ua=/\S+/g;function N(a){return C(a)?a.match(ua)||[]:[]}E.hasClass=function(a){return!!a&&u.call(this,function(b){return x(b)&&b.classList.contains(a)})};
+  E.removeAttr=function(a){var b=N(a);return this.each(function(a,d){x(d)&&J(b,function(a,b){d.removeAttribute(b)})})};E.attr=function(a,b){if(a){if(C(a)){if(2>arguments.length){if(!this[0]||!x(this[0]))return;var c=this[0].getAttribute(a);return null===c?void 0:c}return void 0===b?this:null===b?this.removeAttr(a):this.each(function(c,h){x(h)&&h.setAttribute(a,b)})}for(c in a)this.attr(c,a[c]);return this}};
+  E.toggleClass=function(a,b){var c=N(a),d=void 0!==b;return this.each(function(a,f){x(f)&&J(c,function(a,c){d?b?f.classList.add(c):f.classList.remove(c):f.classList.toggle(c)})})};E.addClass=function(a){return this.toggleClass(a,!0)};E.removeClass=function(a){return arguments.length?this.toggleClass(a,!1):this.attr("class","")};
+  function O(a,b,c,d){for(var h=[],f=D(b),g=d&&L(d),y=0,z=a.length;y<z;y++)if(f){var l=b(a[y]);l.length&&ja.apply(h,l)}else for(l=a[y][b];!(null==l||d&&g(-1,l));)h.push(l),l=c?l[b]:null;return h}function P(a){return 1<a.length?t.call(a,function(a,c,d){return ha.call(d,a)===c}):a}F.unique=P;E.add=function(a,b){return F(P(this.get().concat(F(a,b).get())))};function Q(a,b,c){if(x(a)){var d=m.getComputedStyle(a,null);return c?d.getPropertyValue(b)||void 0:d[b]||a.style[b]}}
+  function R(a,b){return parseInt(Q(a,b),10)||0}var S=/^--/,T={},va=ca.style,wa=["webkit","moz","ms"];function xa(a,b){void 0===b&&(b=S.test(a));if(b)return a;if(!T[a]){b=G(a);var c=""+b[0].toUpperCase()+b.slice(1);b=(b+" "+wa.join(c+" ")+c).split(" ");J(b,function(b,c){if(c in va)return T[a]=c,!1})}return T[a]}
+  var ya={animationIterationCount:!0,columnCount:!0,flexGrow:!0,flexShrink:!0,fontWeight:!0,gridArea:!0,gridColumn:!0,gridColumnEnd:!0,gridColumnStart:!0,gridRow:!0,gridRowEnd:!0,gridRowStart:!0,lineHeight:!0,opacity:!0,order:!0,orphans:!0,widows:!0,zIndex:!0};function za(a,b,c){void 0===c&&(c=S.test(a));return c||ya[a]||!ta(b)?b:b+"px"}
+  E.css=function(a,b){if(C(a)){var c=S.test(a);a=xa(a,c);if(2>arguments.length)return this[0]&&Q(this[0],a,c);if(!a)return this;b=za(a,b,c);return this.each(function(d,f){x(f)&&(c?f.style.setProperty(a,b):f.style[a]=b)})}for(var d in a)this.css(d,a[d]);return this};var Aa=/^\s+|\s+$/;function Ba(a,b){a=a.dataset[b]||a.dataset[G(b)];return Aa.test(a)?a:aa(JSON.parse,a)}
+  E.data=function(a,b){if(!a){if(!this[0])return;var c={},d;for(d in this[0].dataset)c[d]=Ba(this[0],d);return c}if(C(a))return 2>arguments.length?this[0]&&Ba(this[0],a):void 0===b?this:this.each(function(c,d){c=b;c=aa(JSON.stringify,c);d.dataset[G(a)]=c});for(d in a)this.data(d,a[d]);return this};function Ca(a,b){var c=a.documentElement;return Math.max(a.body["scroll"+b],c["scroll"+b],a.body["offset"+b],c["offset"+b],c["client"+b])}
+  function Da(a,b){return R(a,"border"+(b?"Left":"Top")+"Width")+R(a,"padding"+(b?"Left":"Top"))+R(a,"padding"+(b?"Right":"Bottom"))+R(a,"border"+(b?"Right":"Bottom")+"Width")}
+  J([!0,!1],function(a,b){J(["Width","Height"],function(a,d){E[(b?"outer":"inner")+d]=function(c){if(this[0])return H(this[0])?b?this[0]["inner"+d]:this[0].document.documentElement["client"+d]:w(this[0])?Ca(this[0],d):this[0][(b?"offset":"client")+d]+(c&&b?R(this[0],"margin"+(a?"Top":"Left"))+R(this[0],"margin"+(a?"Bottom":"Right")):0)}})});
+  J(["Width","Height"],function(a,b){var c=b.toLowerCase();E[c]=function(d){if(!this[0])return void 0===d?void 0:this;if(!arguments.length)return H(this[0])?this[0].document.documentElement["client"+b]:w(this[0])?Ca(this[0],b):this[0].getBoundingClientRect()[c]-Da(this[0],!a);var h=parseInt(d,10);return this.each(function(b,d){x(d)&&(b=Q(d,"boxSizing"),d.style[c]=za(c,h+("border-box"===b?Da(d,!a):0)))})}});var U={};
+  E.toggle=function(a){return this.each(function(b,c){if(x(c))if(void 0===a?"none"===Q(c,"display"):a){if(c.style.display=c.___cd||"","none"===Q(c,"display")){b=c.style;c=c.tagName;if(U[c])c=U[c];else{var d=n(c);k.body.insertBefore(d,null);var h=Q(d,"display");k.body.removeChild(d);c=U[c]="none"!==h?h:"block"}b.display=c}}else c.___cd=Q(c,"display"),c.style.display="none"})};E.hide=function(){return this.toggle(!1)};E.show=function(){return this.toggle(!0)};
+  function Ea(a,b){return!b||!u.call(b,function(b){return 0>a.indexOf(b)})}var V={focus:"focusin",blur:"focusout"},W={mouseenter:"mouseover",mouseleave:"mouseout"},Fa=/^(mouse|pointer|contextmenu|drag|drop|click|dblclick)/i;function Ga(a,b,c,d,h){var f=a.___ce=a.___ce||{};f[b]=f[b]||[];f[b].push([c,d,h]);a.addEventListener(b,h)}function X(a){a=a.split(".");return[a[0],a.slice(1).sort()]}
+  function Y(a,b,c,d,h){var f=a.___ce=a.___ce||{};if(b)f[b]&&(f[b]=f[b].filter(function(f){var g=f[0],z=f[1];f=f[2];if(h&&f.guid!==h.guid||!Ea(g,c)||d&&d!==z)return!0;a.removeEventListener(b,f)}));else for(b in f)Y(a,b,c,d,h)}
+  E.off=function(a,b,c){var d=this;if(void 0===a)this.each(function(a,b){(x(b)||w(b)||H(b))&&Y(b)});else if(C(a))D(b)&&(c=b,b=""),J(N(a),function(a,h){a=X(h);h=a[0];var f=a[1],g=W[h]||V[h]||h;d.each(function(a,d){(x(d)||w(d)||H(d))&&Y(d,g,f,b,c)})});else for(var h in a)this.off(h,a[h]);return this};
+  E.on=function(a,b,c,d,h){var f=this;if(!C(a)){for(var g in a)this.on(g,b,c,a[g],h);return this}C(b)||(void 0!==b&&null!==b&&(void 0!==c&&(d=c),c=b),b="");D(d)||(d=c,c=void 0);if(!d)return this;J(N(a),function(a,g){a=X(g);g=a[0];var l=a[1],z=W[g]||V[g]||g,y=g in W,Ka=g in V;z&&f.each(function(a,f){if(x(f)||w(f)||H(f))a=function La(a){if(a.target["___i"+a.type])return a.stopImmediatePropagation();if(!a.namespace||Ea(l,a.namespace.split(".")))if(b||!(Ka&&(a.target!==f||a.___ot===z)||y&&a.relatedTarget&&
+  f.contains(a.relatedTarget))){var g=f;if(b){for(var A=a.target;!sa(A,b);){if(A===f)return;A=A.parentNode;if(!A)return}g=A;a.___cd=!0}a.___cd&&Object.defineProperty(a,"currentTarget",{configurable:!0,get:function(){return g}});Object.defineProperty(a,"data",{configurable:!0,get:function(){return c}});A=d.call(g,a,a.___td);h&&Y(f,z,l,b,La);!1===A&&(a.preventDefault(),a.stopPropagation())}},a.guid=d.guid=d.guid||F.guid++,Ga(f,z,l,b,a)})});return this};E.one=function(a,b,c,d){return this.on(a,b,c,d,!0)};
+  E.ready=function(a){function b(){return setTimeout(a,0,F)}"loading"!==k.readyState?b():k.addEventListener("DOMContentLoaded",b);return this};E.trigger=function(a,b){if(C(a)){var c=X(a),d=c[0];c=c[1];var h=W[d]||V[d]||d;if(!h)return this;var f=Fa.test(h)?"MouseEvents":"HTMLEvents";a=k.createEvent(f);a.initEvent(h,!0,!0);a.namespace=c.join(".");a.___ot=d}a.___td=b;var g=a.___ot in V;return this.each(function(b,c){g&&D(c[a.___ot])&&(c["___i"+a.type]=!0,c[a.___ot](),c["___i"+a.type]=!1);c.dispatchEvent(a)})};
+  function Ha(a){return a.multiple&&a.options?O(t.call(a.options,function(a){return a.selected&&!a.disabled&&!a.parentNode.disabled}),"value"):a.value||""}var Ia=/%20/g,Ja=/\r?\n/g,Ma=/file|reset|submit|button|image/i,Na=/radio|checkbox/i;
+  E.serialize=function(){var a="";this.each(function(b,c){J(c.elements||[c],function(b,c){c.disabled||!c.name||"FIELDSET"===c.tagName||Ma.test(c.type)||Na.test(c.type)&&!c.checked||(b=Ha(c),void 0!==b&&(b=q(b)?b:[b],J(b,function(b,d){b=a;d="&"+encodeURIComponent(c.name)+"="+encodeURIComponent(d.replace(Ja,"\r\n")).replace(Ia,"+");a=b+d})))})});return a.slice(1)};
+  E.val=function(a){return arguments.length?this.each(function(b,c){if((b=c.multiple&&c.options)||Na.test(c.type)){var d=q(a)?ia.call(a,String):null===a?[]:[String(a)];b?J(c.options,function(a,b){b.selected=0<=d.indexOf(b.value)},!0):c.checked=0<=d.indexOf(c.value)}else c.value=void 0===a||null===a?"":a}):this[0]&&Ha(this[0])};E.clone=function(){return this.map(function(a,b){return b.cloneNode(!0)})};E.detach=function(a){M(this,a).each(function(a,c){c.parentNode&&c.parentNode.removeChild(c)});return this};
+  var Oa=/^\s*<(\w+)[^>]*>/,Pa=/^<(\w+)\s*\/?>(?:<\/\1>)?$/,Qa={"*":ca,tr:da,td:ea,th:ea,thead:p,tbody:p,tfoot:p};function qa(a){if(!C(a))return[];if(Pa.test(a))return[n(RegExp.$1)];var b=Oa.test(a)&&RegExp.$1;b=Qa[b]||Qa["*"];b.innerHTML=a;return F(b.childNodes).detach().get()}F.parseHTML=qa;E.empty=function(){return this.each(function(a,b){for(;b.firstChild;)b.removeChild(b.firstChild)})};
+  E.html=function(a){return arguments.length?void 0===a?this:this.each(function(b,c){x(c)&&(c.innerHTML=a)}):this[0]&&this[0].innerHTML};E.remove=function(a){M(this,a).detach().off();return this};E.text=function(a){return void 0===a?this[0]?this[0].textContent:"":this.each(function(b,c){x(c)&&(c.textContent=a)})};E.unwrap=function(){this.parent().each(function(a,b){"BODY"!==b.tagName&&(a=F(b),a.replaceWith(a.children()))});return this};
+  E.offset=function(){var a=this[0];if(a)return a=a.getBoundingClientRect(),{top:a.top+m.pageYOffset,left:a.left+m.pageXOffset}};E.offsetParent=function(){return this.map(function(a,b){for(a=b.offsetParent;a&&"static"===Q(a,"position");)a=a.offsetParent;return a||ba})};
+  E.position=function(){var a=this[0];if(a){var b="fixed"===Q(a,"position"),c=b?a.getBoundingClientRect():this.offset();if(!b){var d=a.ownerDocument;for(b=a.offsetParent||d.documentElement;(b===d.body||b===d.documentElement)&&"static"===Q(b,"position");)b=b.parentNode;b!==a&&x(b)&&(d=F(b).offset(),c.top-=d.top+R(b,"borderTopWidth"),c.left-=d.left+R(b,"borderLeftWidth"))}return{top:c.top-R(a,"marginTop"),left:c.left-R(a,"marginLeft")}}};
+  E.children=function(a){return M(F(P(O(this,function(a){return a.children}))),a)};E.contents=function(){return F(P(O(this,function(a){return"IFRAME"===a.tagName?[a.contentDocument]:"TEMPLATE"===a.tagName?a.content.childNodes:a.childNodes})))};E.find=function(a){return F(P(O(this,function(b){return v(a,b)})))};var Ra=/^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g,Sa=/^$|^module$|\/(java|ecma)script/i,Ta=["type","src","nonce","noModule"];
+  function Ua(a,b){a=F(a);a.filter("script").add(a.find("script")).each(function(a,d){if(Sa.test(d.type)&&ba.contains(d)){var c=n("script");c.text=d.textContent.replace(Ra,"");J(Ta,function(a,b){d[b]&&(c[b]=d[b])});b.head.insertBefore(c,null);b.head.removeChild(c)}})}
+  function Z(a,b,c,d,h,f,g,y){J(a,function(a,f){J(F(f),function(a,f){J(F(b),function(b,g){var l=c?g:f;b=c?a:b;g=c?f:g;l=b?l.cloneNode(!0):l;b=!b;h?g.insertBefore(l,d?g.firstChild:null):g.parentNode.insertBefore(l,d?g:g.nextSibling);b&&Ua(l,g.ownerDocument)},y)},g)},f);return b}E.after=function(){return Z(arguments,this,!1,!1,!1,!0,!0)};E.append=function(){return Z(arguments,this,!1,!1,!0)};E.appendTo=function(a){return Z(arguments,this,!0,!1,!0)};E.before=function(){return Z(arguments,this,!1,!0)};
+  E.insertAfter=function(a){return Z(arguments,this,!0,!1,!1,!1,!1,!0)};E.insertBefore=function(a){return Z(arguments,this,!0,!0)};E.prepend=function(){return Z(arguments,this,!1,!0,!0,!0,!0)};E.prependTo=function(a){return Z(arguments,this,!0,!0,!0,!1,!1,!0)};E.replaceWith=function(a){return this.before(a).remove()};E.replaceAll=function(a){F(a).replaceWith(this);return this};E.wrapAll=function(a){a=F(a);for(var b=a[0];b.children.length;)b=b.firstElementChild;this.first().before(a);return this.appendTo(b)};
+  E.wrap=function(a){return this.each(function(b,c){var d=F(a)[0];F(c).wrapAll(b?d.cloneNode(!0):d)})};E.wrapInner=function(a){return this.each(function(b,c){b=F(c);c=b.contents();c.length?c.wrapAll(a):b.append(a)})};E.has=function(a){var b=C(a)?function(b,d){return v(a,d).length}:function(b,d){return d.contains(a)};return this.filter(b)};E.is=function(a){var b=L(a);return u.call(this,function(a,d){return b.call(a,d,a)})};E.next=function(a,b,c){return M(F(P(O(this,"nextElementSibling",b,c))),a)};
+  E.nextAll=function(a){return this.next(a,!0)};E.nextUntil=function(a,b){return this.next(b,!0,a)};E.not=function(a){var b=L(a);return this.filter(function(c,d){return(!C(a)||x(d))&&!b.call(d,c,d)})};E.parent=function(a){return M(F(P(O(this,"parentNode"))),a)};E.index=function(a){var b=a?F(a)[0]:this[0];a=a?this:F(b).parent().children();return ha.call(a,b)};E.closest=function(a){var b=this.filter(a);if(b.length)return b;var c=this.parent();return c.length?c.closest(a):b};
+  E.parents=function(a,b){return M(F(P(O(this,"parentElement",!0,b))),a)};E.parentsUntil=function(a,b){return this.parents(b,a)};E.prev=function(a,b,c){return M(F(P(O(this,"previousElementSibling",b,c))),a)};E.prevAll=function(a){return this.prev(a,!0)};E.prevUntil=function(a,b){return this.prev(b,!0,a)};E.siblings=function(a){return M(F(P(O(this,function(a){return F(a).parent().children().not(a)}))),a)};"undefined"!==typeof exports?module.exports=F:m.cash=m.$=F;
+  })();
+  </script>
+  <div class="image-with-text page-width subscriptionProduct">
+    <div class="grid grid--gapless grid--1-col grid--2-col-tablet">
+      <div id="subscriptionProduct__left" class="grid__item subscriptionProduct__left">
+        <h2 class="sec_title">{{ section.settings.heading_title }}</h2>
+  
+        <div class="flavours_option">
+          {% for block in section.blocks %}
+          {% liquid 
+              assign product = all_products[block.settings.product]
+              if block.settings.pro_image != blank
+                assign image = block.settings.pro_image
+              else
+                assign image = product.featured_image
+              endif
+          %}
+            <input type="radio" id="pro{{ forloop.index }}" onchange="flavoursChange(this)" class="" name="product" 
+            value="{{ product.title | handle }}" 
+            data-price="{{ product.price | money_without_trailing_zeros }}" 
+            data-title="{{ product.title | handle }}"
+            {% if forloop.first %}checked{% endif %}>
+            <label for="pro{{ forloop.index }}">
+              <img class="" loading="lazy"  src="{{ image | image_url: width: 100 }}" width="100" height="auto" alt="{{ image.alt }}">
+            </label>
+          {% endfor %}
+        </div>
+  
+        
+        {% for block in section.blocks %}
+          {% assign product = all_products[block.settings.product] %}
+          {% assign block_index = forloop.index %}
+          <product-form class="product-form">
+          {% form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' %}
+            <div class="pro_options {% if forloop.first %}visible{% endif %}" data-pro-title="{{ product.title | handle }}" style="display:{% if forloop.first %}block{% else %}none{% endif %};">
+  
+              <select name="id" class="product-single__variants" style="display:none;">
+                {% for variant in product.variants %}
+                  <option data-price="{{ variant.price }}" data-value="{{ variant.title }}" value="{{ variant.id }}" {% if forloop.first %}selected="selected"{% endif %}>{{ variant.title }}</option>
+                {% endfor %}
+              </select>
+  
+              <fieldset class="js product-form__input subscribeBox">
+                <input style="display: none;" type="radio" checked id="onetime{{ block_index }}" class="" onchange="subChange(this);" name="subscribe" value="One-time purchase">
+                <label class="subscribeBox_label" for="onetime{{ block_index }}">One-time Purchase</label>
+                <input style="display: none;" type="radio" id="subscribe{{ block_index }}" class="" onchange="subChange(this);" name="subscribe" value="Subscribe">
+                <label class="subscribeBox_label" for="subscribe{{ block_index }}">
+                <span class="saveText discount_text">save</span>Subscribe</label>
+              </fieldset>
+              <div class="subscription_details">
+                <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="reload-icon_subs"><path fill="rgb(var(--color-foreground))" d="M13.64 2.35C12.19 0.9 10.2 0 7.99 0C3.57 0 0 3.58 0 8C0 12.42 3.57 16 7.99 16C11.72 16 14.83 13.45 15.72 10H13.64C12.82 12.33 10.6 14 7.99 14C4.68 14 1.99 11.31 1.99 8C1.99 4.69 4.68 2 7.99 2C9.65 2 11.13 2.69 12.21 3.78L8.99 7H15.99V0L13.64 2.35Z"></path></svg>
+                <p class="subscription_details--label">{{ section.settings.subsc_label }}</p>
+                <div class="subscription_details--popup">
+                  <h2 class="subscription_details--heading">{{ section.settings.subsc_heading }}</h2>
+                  <div class="subscription_details--text">{{ section.settings.subsc_text }}</div>
+                  <a href="{{ section.settings.subsc_link }}" class="subscription_details--link">{{ section.settings.subsc_link_text }}</a>
+                </div>
+              </div>
+              {% for option in product.options_with_values %}
+                <div class="js product-form__input swatches">
+                {% assign index = forloop.index %}
+                  {% for value in option.values %}
+                    <input {% if forloop.index == 1 %} checked="checked" {% endif %} style="display: none;" type="radio" id="{{ value | handle }}{{ block_index }}" class="" name="option-{{ index }}" value="{{ value }}">
+                    <label for="{{ value | handle }}{{ block_index }}" class="swatches_label">{{ value }}</label>
+                  {% endfor %}
+                </div>
+              {% endfor %}
+        
+  
+            {% if product.selling_plan_groups != blank %}
+              {% for selling_plan_group in product.selling_plan_groups %}
+                <div class="js product-form__input selling_plan_allocation">
+                  {% for plan in selling_plan_group.selling_plans %}
+                    <input style="display: none;" type="radio" id="{{ plan.options[0].value | handle }}{{ plan.id }}"  data-freq="{{ plan.options[0].value | split: ' ' | first }}" name="selling_plan_allocation" value="{{ plan.id }}">
+                    <label for="{{ plan.options[0].value | handle }}{{ plan.id }}" class="swatches_label">{{ plan.options[0].value }}</label>
+                  {% endfor %}
+                </div>
+              {% endfor %}
+              {% endif %}
+  
+            {% if product.selling_plan_allocations %}{% endif %}
+            <select class="selling_plans" name="selling_plan" style="display:none;">
+              {% for variant in product.variants %}
+              {% assign v_index = forloop.index %}
+                <optgroup label="{{ variant.title }}">    
+                  {% for allocation in variant.selling_plan_allocations %}
+                    <option data-discount="{{ allocation.selling_plan.price_adjustments[0].value }}" data-var-price="{{ allocation.price_adjustments[0].price }}" data-var-freq="{{ allocation.selling_plan.name | remove: 'Delivery every' | split: ' ' | first }}" data-var-title="{{ variant.title }}" value="{{ allocation.selling_plan.id }}" {% if v_index == 1 %}selected="selected"{% endif %}>
+                      {{ allocation.selling_plan.name }}
+                    </option>
+                  {% endfor %}
+                </optgroup>
+              {% endfor %}
+            </select>
+            
+            
+  
+              <div class="product-form__input product-form__quantity">
+                <quantity-input class="quantity">
+                  <button class="quantity__button no-js-hidden" name="minus" type="button">
+                    <span class="visually-hidden">Decrease quantity for {{ product.title }}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation" class="icon icon-minus" fill="none" viewBox="0 0 10 2">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M.5 1C.5.7.7.5 1 .5h8a.5.5 0 110 1H1A.5.5 0 01.5 1z" fill="currentColor">
+                    </path></svg>
+  
+                  </button>
+                  <input class="quantity__input" type="number" name="quantity"  min="1" value="1">
+                  <button class="quantity__button no-js-hidden" name="plus" type="button">
+                    <span class="visually-hidden">Increase quantity for {{ product.title }}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation" class="icon icon-plus" fill="none" viewBox="0 0 10 10">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M1 4.51a.5.5 0 000 1h3.5l.01 3.5a.5.5 0 001-.01V5.5l3.5-.01a.5.5 0 00-.01-1H5.5L5.49.99a.5.5 0 00-1 .01v3.5l-3.5.01H1z" fill="currentColor">
+                    </path></svg>
+  
+                  </button>
+                </quantity-input>
+              </div>
+  
+              <span class="subs_section_price" id="pPrice">{{ product.price | money_without_trailing_zeros }}</span>
+              <button type="submit"  name="add" class="product-form__submit add_btn">Add To Cart</button>
+            </div>
+          {% endform %}
+          </product-form>
+         <div class="mix_pack_header {% if forloop.index == 1 %}mix_pack_header_active{% endif %}" data-title="{{ product.title | handle }}">{{ product.title }}</div>
+        {% endfor %}
+        <img class="mix_pack_wave" src=" https://cdn.shopify.com/s/files/1/0501/1331/4984/files/mixpackwaves.svg?v=1642395430"> 
+       
+         
+      </div>
+      <div class="grid__item" id="jankooo">
+      <div id="mix_pack_cont" class="grid__item mix_pack_cont mix_pack_cont_sticky">
+      <div id="mix_pack_images" class="mix_pack_images">
+         
+      {% for block in section.blocks %}
+          {% assign index = forloop.index %}
+          {% assign product = all_products[block.settings.product] %}
+            {% for image in product.media offset:1 limit:4 %}
+            <img  loading="lazy" width="auto" height="auto" data-title="{{ product.title | handle }}"  class="sub_img active_sub_image_{{ forloop.index }} {% if index == 1 %}active_sub_image{% endif %} " src="{% if image != blank %}{{ image | img_url: 'master' }}{% else %}{{ block.settings.pro_image | img_url: 'master' }}{% endif %}" alt="{% if image != blank %}{{ image.alt }}{% else %}{{ block.settings.pro_image.alt }}{% endif %}">
+            {% endfor %}    
+      {% endfor %}     
+        
+      </div>
+        </div>  </div>
+    </div>
+  </div>
+  {% if template.name != 'index' %}
+  
+  <script>
+  var mix_pack_cont = document.getElementById("mix_pack_cont");
+  mix_pack_cont.classList.add("can_move");
+  </script>
+  
+  {% endif %}
+  
+  
+  {% if template.name == 'index' %}
+  <script>
+       var mix_pack_cont = document.getElementById("mix_pack_cont");
+       
+       window.onscroll = function(){
+        const {scrollTop, scrollHeight, clientHeight} = document.documentElement;
+         var dest = document.getElementById("subscriptionProduct__left").offsetTop;
+         var mix_pack_images = document.getElementById("mix_pack_images");
+         var mix_pack_cont_sticky = document.getElementsByClassName("mix_pack_cont_sticky");
+         var dest2 = document.getElementById("jankooo").offsetTop;
+         var add_space = -25;
+         
+         if(window.screen.width < 750 ){
+           dest = dest2;
+         }
+         
+         var y = dest - 0.5*clientHeight;
+         var d = (scrollTop)/y;
+         var g = 46 - 32*(d - 0.5);
+         
+         if(window.screen.width < 750 ){
+           g = 2*g;
+            var z = -63 + 57*d*2;
+           
+         } else{
+            add_space = screen.width/20;
+           var z = -40 + 37*d*2;
+         }
+         console.log(add_space);
+         
+         if((scrollTop + 0.5*clientHeight) > (dest + add_space)){
+            mix_pack_cont.classList.remove("mix_pack_cont_sticky");
+            mix_pack_cont.classList.add("can_move");
+           if(window.screen.width < 750 ){ 
+             mix_pack_images.style.width = "56vw";
+           }else {
+             mix_pack_images.style.width = "28vw";
+           }
+                              
+          }else {
+            mix_pack_cont.classList.add("mix_pack_cont_sticky");
+            mix_pack_cont.classList.remove("can_move");
+            if(z<0) {
+            mix_pack_cont_sticky[0].style.right = z + "%";
+            } else {
+               mix_pack_cont_sticky[0].style.right = "0";
+            }
+            if(d> 0.5){           
+             mix_pack_images.style.width = g + "vw";
+            }
+          }
+       };
+       
+  </script>
+  
+  {% endif %}
+  
+  <!-- <script>
+   var swatches_label = document.getElementsByClassName("swatches_label");
+    swatches_label[0].classList.add("active_label");
+  </script> -->
+  <script type="text/javascript">
+  var Shopify = Shopify || {};
+  // ---------------------------------------------------------------------------
+  // Money format handler
+  // ---------------------------------------------------------------------------
+  {% raw %}
+    Shopify.money_format = "${{amount}}";
+  {% endraw %}
+  Shopify.formatMoney = function(cents, format) {
+      if (typeof cents == 'string') {
+          cents = cents.replace('.', '');
+      }
+      var value = '';
+      var placeholderRegex = /\{\{\s*(\w+)\s*\}\}/;
+      var formatString = (format || this.money_format);
+  
+      function defaultOption(opt, def) {
+          return (typeof opt == 'undefined' ? def : opt);
+      }
+  
+      function formatWithDelimiters(number, precision, thousands, decimal) {
+          precision = defaultOption(precision, 2);
+          thousands = defaultOption(thousands, ',');
+          decimal = defaultOption(decimal, '.');
+  
+          if (isNaN(number) || number == null) {
+              return 0;
+          }
+  
+          number = (number / 100.0).toFixed(precision);
+  
+          var parts = number.split('.'),
+              dollars = parts[0].replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1' + thousands),
+              cents = parts[1] ? (decimal + parts[1]) : '';
+  
+          return dollars + cents;
+      }
+      switch (formatString.match(placeholderRegex)[1]) {
+          case 'amount':
+              value = formatWithDelimiters(cents, 2);
+              break;
+          case 'amount_no_decimals':
+              value = formatWithDelimiters(cents, 0);
+              break;
+          case 'amount_with_comma_separator':
+              value = formatWithDelimiters(cents, 2, '.', ',');
+              break;
+          case 'amount_no_decimals_with_comma_separator':
+              value = formatWithDelimiters(cents, 0, '.', ',');
+              break;
+      }
+  
+      return formatString.replace(placeholderRegex, value);
+  };
+  
+  var c_format = document.getElementsByTagName('body')[0].getAttribute('data-money-format');
+  var pro_option = document.getElementsByClassName('.pro_options');
+  for (var i = 0; i < pro_option.length; i++) {
+      var e = pro_option[i].querySelector('[name="selling_plan"]');
+      var sub_discount = e.options[e.selectedIndex].getAttribute('data-discount');
+      pro_option[i].querySelector('.discount_text').innerHTML = 'save ' + sub_discount + '%';
+  }
+  
+  $(function () {
+    $(`[name='quantity'],[name="option-1"],[name="option-2"],[name="option-3"],[name="subscribe"],[name="product"],[name="selling_plan_allocation"]`).on('change',function(){
+      adjustPricingAndOptions();
+    }); 
+    adjustPricingAndOptions();
+  })
+  
+  
+  function adjustPricingAndOptions(){
+    let subscription_type = $(".shopify-product-form .pro_options.visible").find(`[name="subscribe"]:checked`).val();
+    let option_1 = $(".shopify-product-form .pro_options.visible").find(`[name="option-1"]:checked`).val();
+    let is_option_2 = false;
+    let is_option_3 = false;
+    let variant_title = '';
+    let quantity = parseInt($(".shopify-product-form .pro_options.visible").find(`[name="quantity"]`).val());
+    variant_title += option_1;
+  
+    if($(".shopify-product-form .pro_options.visible").find(`[name="option-2"]`).length > 0) {
+      is_option_2 = true;
+      let option_2 = $(".shopify-product-form .pro_options.visible").find(`[name="option-2"]:checked`).val();
+      variant_title += ` / ${option_2}`;
+    }
+  
+    if($(".shopify-product-form .pro_options.visible").find(`[name="option-3"]`).length > 0) {
+      is_option_3 = true;
+      let option_3 = $(".shopify-product-form .pro_options.visible").find(`[name="option-3"]:checked`).val();
+      variant_title += ` / ${option_3}`;
+    }
+  
+    let variant_ids = $(".shopify-product-form .pro_options.visible").find(`[name="id"]`).find('option');
+    let variant_selected_em = '';
+    $(variant_ids).removeAttr('selected');
+    $(variant_ids).each(function(ix,em){
+      let em_variant_title = $(em).text().toString().trim();
+      if(em_variant_title == variant_title) {
+        $(em).attr('selected','selected');
+        variant_selected_em = $(em);
+      }
+    });
+  
+    item_price = $(variant_selected_em).attr('data-price');
+    if(subscription_type == 'One-time purchase') {
+      item_price = $(variant_selected_em).attr('data-price');
+    } else {
+      let selling_plan_option = $(".shopify-product-form .pro_options.visible").find(`[name="selling_plan_allocation"]:checked`).val();
+      item_price = $(".shopify-product-form .pro_options.visible").find(`[name="selling_plan"] option[value="${selling_plan_option}"][data-var-title='${variant_title}']`).attr('data-var-price');
+      $(".shopify-product-form .pro_options.visible").find(`[name="selling_plan"] option`).removeAttr('selected');
+      $(".shopify-product-form .pro_options.visible").find(`[name="selling_plan"] option[value="${selling_plan_option}"][data-var-title='${variant_title}']`).attr('selected','selected');
+    }
+    let total_price = quantity * parseInt(item_price);
+    let price_formatted = Shopify.formatMoney(item_price, c_format);
+    let total_price_formatted = Shopify.formatMoney(total_price, c_format);
+    $(".shopify-product-form .pro_options.visible").find(`#pPrice`).text(total_price_formatted);
+  }
+  
+  function subChange(evt) {
+      var $this = evt;
+      var val = $this.parentNode.parentNode.querySelector('input[name="subscribe"]:checked').value;
+  
+      if (val == 'One-time purchase') {
+          $this.parentNode.parentNode.querySelector('.selling_plan_allocation').style.display = 'none';
+          $this.parentNode.parentNode.querySelector('.selling_plans option').removeAttribute('selected');
+          $this.parentNode.parentNode.querySelector('.selling_plans').removeAttribute('name');
+      } else if (val == 'Subscribe') {
+          $this.parentNode.parentNode.querySelector('.selling_plan_allocation').style.display = 'flex';
+          $this.parentNode.parentNode.querySelector('.selling_plans').setAttribute('name', 'selling_plan');
+          $this.parentNode.parentNode.querySelector('.selling_plan_allocation input+label').click();
+  
+          var dis_option = $this.parentNode.parentNode.querySelector('[name="selling_plan"]');
+          var sub_discount = dis_option.options[dis_option.selectedIndex].getAttribute('data-discount');
+          $this.parentNode.parentNode.querySelector('.discount_text').innerHTML = 'save ' + sub_discount + '%';
+  
+      }
+  }
+  
+  
+  function flavoursChange(ele) {
+      var price = ele.getAttribute('data-price');
+      var title = ele.getAttribute('data-title');
+      var sub_img = document.getElementsByClassName("sub_img");
+      var mix_pack_header = document.getElementsByClassName("mix_pack_header");
+      
+      var elems = document.querySelectorAll(".pro_options");
+      for (var i = 0; i < elems.length; i += 1) {
+          var t = elems[i].getAttribute('data-pro-title');
+          if (t == title) {
+              elems[i].style.display = 'block';
+              $(elems[i]).addClass('visible');
+          } else {
+              elems[i].style.display = 'none';
+              $(elems[i]).removeClass('visible');
+          }
+      }
+      
+      document.querySelector('.pro_options input[name="subscribe"]').removeAttribute('checked');
+      document.querySelector('.pro_options[data-pro-title="' + title + '"] input[name="subscribe"][value="One-time purchase"]+label').click();
+    
+      for(let i=0; i < sub_img.length; i++){
+        if(sub_img[i].getAttribute("data-title") == title){
+          sub_img[i].classList.add("active_sub_image");
+        } else{
+          sub_img[i].classList.remove("active_sub_image");
+        }
+    
+    }
+     for(let j=0; j < mix_pack_header.length; j++){
+        if(mix_pack_header[j].getAttribute("data-title") == title){
+          mix_pack_header[j].classList.add("mix_pack_header_active");
+        } else{
+          mix_pack_header[j].classList.remove("mix_pack_header_active");
+        }  
+    }
+  }
+  </script>
+  {% schema %}
+  {
+    "name":"Product Section",
+    "class":"shopify-section-subscription-section",
+    "settings":[
+      {
+          "type": "text",
+          "id": "heading_title",
+          "label": "Section title",
+          "default": "choose your flavour"
+      },
+      {
+          "type": "text",
+          "id": "subsc_label",
+          "label": "Subscription popup label",
+          "default": "Subscription details"
+      },
+      {
+          "type": "text",
+          "id": "subsc_heading",
+          "label": "Subscription popup heading",
+          "default": "How subscriptions work"
+      },
+      {
+          "type": "richtext",
+          "id": "subsc_text",
+          "label": "Subscription popup description",
+          "default": "<p>Products are automatically delivered on your schedule. No obligation, modify or cancel your subscription anytime</p>"
+      },
+      {
+          "type": "url",
+          "id": "subsc_link",
+          "label": "Subscription popup link"
+      },
+      {
+          "type": "text",
+          "id": "subsc_link_text",
+          "label": "Subscription popup link text",
+          "default": "Learn More..."
+      }
+  
+      ],
+    "blocks":[
+      {
+        "type":"block",
+        "name":"Product",
+        "limit":5,
+        "settings":[
+          {
+            "type":"product",
+            "id":"product",
+            "label":"Product"
+          },
+          {
+            "type":"image_picker",
+            "id":"pro_image",
+            "label":"Image"
+          }
+        ]
+      }
+    ],
+    "presets":[
+      {
+        "name":"Product Section",
+        "category":"Custom Section"
+      }
+    ]
+  }
+  {% endschema %}
